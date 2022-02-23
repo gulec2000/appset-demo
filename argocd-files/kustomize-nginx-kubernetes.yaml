@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kustomize-nginx-app
+spec:
+  destination:
+    name: ''
+    namespace: kustomize-nginx-ns
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: kustomize-nginx-kubernetes
+    repoURL: 'https://github.com/gulec2000/appset-demo'
+    targetRevision: HEAD
+  project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

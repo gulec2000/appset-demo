@@ -1,4 +1,4 @@
-namePrefix: devops-india-
+namePrefix: devops-de-
 
 resources:
 - nginx-deployment.yaml
